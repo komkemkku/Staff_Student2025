@@ -12,20 +12,20 @@
               <p class="text-sm mt-10">Username :</p>
               <input
                 type="text"
-                class="font-normal text-sm w-80 p-4 bg-gray-200 border-gray-500 rounded-3xl mt-3 drop-shadow-lg"
+                class="font-normal text-sm w-80 p-4 bg-gray-200 border border-gray-300 rounded-3xl mt-3 drop-shadow-lg"
                 placeholder="username"
               />
               <p class="text-sm mt-10">Password :</p>
               <input
                 type="password"
-                class="font-normal text-sm w-80 p-4 bg-gray-200 border-gray-500 rounded-3xl mt-3 drop-shadow-lg"
+                class="font-normal text-sm w-80 p-4 bg-gray-200 border border-gray-300 rounded-3xl mt-3 drop-shadow-lg"
                 placeholder="password"
               />
             </div>
             <div class="flex justify-center mt-10">
               <button
                 @click="login"
-                class="font-semibold text-white bg-black w-40 h-10 rounded-3xl mt-20 drop-shadow-lg mb-10"
+                class="font-serif font-semibold text-white bg-black w-40 h-10 rounded-3xl mt-20 drop-shadow-lg mb-10"
               >
                 Login
               </button>
