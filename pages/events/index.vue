@@ -21,15 +21,12 @@
           class="h-[150px] max-lg:w-[700px] max-sm:w-[350px] bg-gray-300 rounded-lg mt-5"
         >
           <img
-            :src="
-              event.image || event.imageUrl || 'https://shortrecap.co/wp-content/uploads/2020/05/Catcover_web.jpg'
-            "
-            class="w-full h-full object-cover rounded-lg"
+            :src="event.image || event.imageUrl || 'https://shortrecap.co/wp-content/uploads/2020/05/Catcover_web.jpg'"
+            class="w-full h-full object-cover rounded-lg cursor-pointer"
             alt="Event Image"
+            @click="goToEvent(event.id)"
           />
         </div>
-
-        
       </div>
     </div>
 
@@ -42,13 +39,25 @@
 
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import * as api from "@/services/api.service";
+import { useIndexStore } from "@/stores/main";
 
-const events = ref<Array<{ id: number; image?: string; imageUrl?: string }>>(
-  []
-);
+definePageMeta({
+  middleware: "auth",
+});
+
+const store = useIndexStore();
+const router = useRouter(); 
+
+const events = ref<Array<{ id: number; image?: string; imageUrl?: string }>>([]);
 const loading = ref(true);
 const error = ref<string | null>(null);
+
+
+const goToEvent = (id: number) => {
+  router.push(`/events/${id}`);
+};
 
 const fetchEvents = async () => {
   try {

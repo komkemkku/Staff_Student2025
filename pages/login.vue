@@ -60,6 +60,10 @@ import { ref } from "vue";
 // import { useCookie } from "#app";
 
 definePageMeta({
+  middleware: "auth",
+});
+
+definePageMeta({
   layout: "default",
 });
 
@@ -89,7 +93,7 @@ const login = async () => {
 
     // ถ้าล็อกอินสำเร็จ ให้ redirect ไปหน้าแรก
     if (store.$state.token) {
-      router.push("/events/list");
+      router.push("/events/");
     }
   } catch (error) {
     console.error(error);
