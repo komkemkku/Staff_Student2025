@@ -88,6 +88,10 @@ const goBack = () => {
   router.push("/events");
 };
 
+definePageMeta({
+  middleware: "auth",
+});
+
 const loadStaffId = () => {
   const storedStaffId = localStorage.getItem("staff_id");
   const parsedStaffId = storedStaffId ? Number(storedStaffId) : null;
