@@ -1,7 +1,14 @@
-// import { defineStore } from 'pinia'
+import { defineStore } from 'pinia'
 
-// export const useMyMainStore = defineStore({
-//   id: 'myMainStore',
-//   state: () => ({ }),
-//   actions: {}
-// })
+interface State {
+    token : string
+    staffId : string,
+}
+
+export const useIndexStore = defineStore('index',{
+    state: (): State => ({
+        token:'',
+        staffId:'',
+    }),
+});
+
